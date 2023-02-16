@@ -1,10 +1,11 @@
-def roman_to_int(s:str)->int:
+def roman_to_int(current_roman:str)->int:
     res=0
-    d={'CM':900, 'CD':400, 'XC': 90, 'XL': 40, 'IX': 9, 'IV':4,
+    roman_dict ={'CM':900, 'CD':400, 'XC': 90, 'XL': 40, 'IX': 9, 'IV':4,
         'I':1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500, 'M':1000}
-    for k in d:
-        res+=d[k]*s.count(k)
-        s=s.replace(k, '')
+    for roman_symvol in roman_dict:
+        res += roman_dict[roman_symvol] * current_roman.count(roman_symvol)
+        # print(roman_dict[roman_symvol], current_roman.count(roman_symvol), res)
+        current_roman = current_roman.replace(roman_symvol, '')
     return res
 
 def int_to_roman(num:int)->str:
